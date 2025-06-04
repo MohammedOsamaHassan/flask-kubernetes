@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: {{IMAGE}}
+        image: mohamedosama45/flask-app:latest
         resources:
           limits:
             memory: "128Mi"
@@ -24,3 +24,5 @@ spec:
             cpu: "50m"
         ports:
         - containerPort: 5000
+      imagePullSecrets:
+      - name: regcred
