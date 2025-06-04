@@ -44,7 +44,7 @@ pipeline{
             steps {
                 echo 'Deploying to server'
                 sh '''
-                export KUBECONFIG=/etc/rancher/k3s/k3s.yaml 
+                export KUBECONFIG=/root/.kube/k3s.yaml 
                 kubectl apply -f k8s/deployment.yaml
                 kubectl apply -f k8s/service.yaml
                 '''
@@ -53,7 +53,7 @@ pipeline{
                 success {
                     echo 'Deployment successful'
                     sh '''
-                    export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+                    export KUBECONFIG=/root/.kube/k3s.yaml
                     kubectl get pods -o wide
                     kubectl get services
                     '''
